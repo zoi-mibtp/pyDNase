@@ -33,7 +33,7 @@ def generate_6mer_bed(bam_file, gdict):
 	Loads data from a BAM file, and prints the 6-mers from the 5' ends of the reads
 	as a BED file to a temp file, returns the file path of this temp file
 	"""
-	outfile = tempfile.NamedTemporaryFile(delete=False)
+	outfile = tempfile.NamedTemporaryFile(delete=False, mode="w")
 	samfile = pysam.AlignmentFile(bam_file, "rb")
 	for i in samfile:
 		# Ignore unmapped reads
